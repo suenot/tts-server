@@ -4,15 +4,15 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - 'tts/backend/**'
+      - 'backend/**'
   pull_request:
     branches: [ "main" ]
     paths:
-      - 'tts/backend/**'
+      - 'backend/**'
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}/tts-backend
+  IMAGE_NAME: suenot/tts-backend
 
 jobs:
   build:
@@ -44,7 +44,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./tts/backend
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }} 
