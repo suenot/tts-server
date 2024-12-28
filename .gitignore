@@ -1,0 +1,7 @@
+model.pt
+model_en.pt
+model_ru.pt
+
+.DS_Store
+venv/
+.env
